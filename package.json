@@ -1,0 +1,24 @@
+{
+  "name": "koa-webpack-react",
+  "version": "1.0.0",
+  "description": "testing koa-webpack-react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cathyleeu/koa-webpack-react.git"
+  },
+  "keywords": [
+    "koa",
+    "webpack",
+    "react"
+  ],
+  "author": "cathyleeu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cathyleeu/koa-webpack-react/issues"
+  },
+  "homepage": "https://github.com/cathyleeu/koa-webpack-react#readme"
+}
