@@ -1,6 +1,6 @@
 import createServer from '../lib/createServer';
 
-const PORT = 4321;
+const PORT = 4000;
 
 createServer({
   port: PORT
