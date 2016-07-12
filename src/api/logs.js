@@ -1,8 +1,34 @@
+import takeWhile from 'lodash/takeWhile';
+import safeNumber from '../util/safeNumber';
 const logs = [];
+
+
+function filterLogs(filter, logsToFilter) {
+
+    //applies filter
+    logsToFilter = takeWhile(
+      logsToFilter,
+      log => (
+      log.ts >= filter.from
+        && log.ts <= filter.to
+        && log.msg.toUpperCase().indexOf(filter.q.toUpperCase()) > -1
+      )
+    );
+    return logsToFilter;
+}
+
 
 /** gets all registered */
 export function getLogs(ctx) {
-  ctx.ok(logs);
+  const q = ctx.request.query;
+  const filter = {
+    from: q.from ? safeNumber(q.from) : 0,
+    to: q.to ? safeNumber(q.to) : 9999999999999,
+    q: q.q || ''
+  };
+
+  console.log('filter', filter);
+  ctx.ok(filterLogs(filter, logs));
 }
 
 
@@ -15,7 +41,7 @@ export function addLog(ctx) {
   }
   const obj = {
     //message
-    msg: body.msg,
+    msg: body.msg || '',
     //timestamp
     ts: body.ts || Date.now(),
     // Severiry level.

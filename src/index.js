@@ -4,14 +4,13 @@ const html = `<!DOCTYPE html>
   <meta charset="utf-8" />
   <title>cathy's logpipe</title>
 </head>
-<body> hello!
+<body>
+  <div id='app' />
   <script src="/socket.io/socket.io.js"></script>
   <script>
-    var socket = io('http://localhost:4000');
-    socket.on('newLog', function (data) {
-      console.log('i got a big log', data);
-    });
+    window.socket = io();
   </script>
+  <script src="/bundle.js"></script>
 </body>
 </html>
 `;
